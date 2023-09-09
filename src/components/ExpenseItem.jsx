@@ -2,14 +2,22 @@
 // import './ExpenseItem.css';
 import styles from './ExpenseItem.module.css';
 // import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-export default function ExpenseItem() {
+ExpenseItem.propTypes = {
+  date: PropTypes.instanceOf(Date).isRequired,
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+};
+
+export default function ExpenseItem(props) {
+  // console.log(props);
   return (
     <div className={[styles['expense-item']]}>
-      <div>March 28th, 2021</div>
-      <div className={[styles['expense-item-description']]}>
-        <h2>Car Insurance</h2>
-        <div className={[styles['expense-item-price']]}>699.99$</div>
+      <div>{props.date.toUTCString()}</div>
+      <div className={`${styles['expense-item-description']}`}>
+        <h2>{props.title}</h2>
+        <div className={[styles['expense-item-price']]}>${props.amount}</div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@
   margin: 1rem 0;
   border-radius: 12px;
   background-color: #4b4b4b;
+  color: #fff;
 
   & .expense-item-description {
     display: flex;
@@ -18,7 +19,7 @@
     flex: 1;
 
     & h2 {
-      color: #3a3a3a;
+      color: #3cb371;
       font-size: 1rem;
       flex: 1;
       margin: 0 1rem;
@@ -29,7 +30,7 @@
       font-size: 1rem;
       font-weight: bold;
       color: white;
-      background-color: #40005d;
+      background-color: #800080;
       border: 1px solid white;
       padding: 0.5rem;
       border-radius: 12px;
@@ -37,7 +38,7 @@
   }
 }
 
-@media (width >= 580px) {
+@media (width > 580px) {
   .expense-item {
     display: flex;
     justify-content: space-between;
@@ -47,6 +48,7 @@
     margin: 1rem 0;
     border-radius: 12px;
     background-color: #4b4b4b;
+    color: #fff;
 
     & .expense-item-description {
       flex-direction: row;
@@ -56,6 +58,7 @@
 
       & h2 {
         font-size: 1.25rem;
+        color: #3cb371;
       }
 
       & .expense-item-price {
