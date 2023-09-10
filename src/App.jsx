@@ -1,7 +1,8 @@
 'use strict';
 
-import ExpenseItem from './components/ExpenseItem';
+// import ExpenseItem from './components/ExpenseItem';
 import './App.css';
+import Expenses from './components/Expenses';
 
 function App() {
   const expenses = [
@@ -33,7 +34,9 @@ function App() {
 
   return (
     <>
-      <ExpenseItem
+      {/* <ExpenseItem expense={expenses.at(0)} /> */}
+      <Expenses expenses={expenses} />
+      {/* <ExpenseItem
         title={expenses.at(0).title}
         amount={expenses.at(0).amount}
         date={expenses.at(0).date}
@@ -52,7 +55,7 @@ function App() {
         title={expenses.at(3).title}
         amount={expenses.at(3).amount}
         date={expenses.at(3).date}
-      />
+      /> */}
     </>
   );
 }
