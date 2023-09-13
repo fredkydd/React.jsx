@@ -13,7 +13,6 @@ export default function Card(props) {
   const classes = `${styles.card} ${props.className || ''}`;
   // const classesArray = [styles.card, props.className].filter(Boolean),
   //   classes = classesArray.join(' ');
-  console.log(classes);
 
   return <section className={classes}>{props.children}</section>;
 }

@@ -3,7 +3,7 @@
 import styles from './ExpenseItem.module.css';
 // import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Card from './Card';
+import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 
 // *getting data individually from object

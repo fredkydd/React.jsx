@@ -2,7 +2,7 @@
 
 // import ExpenseItem from './components/ExpenseItem';
 import './App.css';
-import Expenses from './components/Expenses';
+import Expenses from './components/Expenses/Expenses';
 
 function App() {
   const expenses = [
@@ -34,6 +34,8 @@ function App() {
 
   return (
     <>
+      <h2>Let&apos;s get started</h2>
+
       <Expenses expenses={expenses} />
 
       {/* <ExpenseItem expense={expenses.at(0)} /> */}
@@ -62,3 +64,13 @@ function App() {
 }
 
 export default App;
+
+// !REACT DOM create it instead of us
+// function App() {
+//   return React.createElement(
+//     'div',
+//     {},
+//     React.createElement('h2', {}, "Let's get started"),
+//     React.createElement(Expenses, { expenses: expenses })
+//   );
+// }
