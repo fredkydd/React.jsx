@@ -34,8 +34,9 @@ function App() {
 
   return (
     <>
-      {/* <ExpenseItem expense={expenses.at(0)} /> */}
       <Expenses expenses={expenses} />
+
+      {/* <ExpenseItem expense={expenses.at(0)} /> */}
       {/* <ExpenseItem
         title={expenses.at(0).title}
         amount={expenses.at(0).amount}

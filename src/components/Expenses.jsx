@@ -1,5 +1,6 @@
 'use strict';
 import styles from './Expenses.module.css';
+import Card from './Card';
 import ExpenseItem from './ExpenseItem';
 import PropTypes from 'prop-types';
 
@@ -22,7 +23,7 @@ Expenses.propTypes = {
 
 export default function Expenses({ expenses }) {
   return (
-    <div className={styles['expenses']}>
+    <Card className={styles['expenses']}>
       {expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}
@@ -31,6 +32,6 @@ export default function Expenses({ expenses }) {
           date={expense.date}
         />
       ))}
-    </div>
+    </Card>
   );
 }

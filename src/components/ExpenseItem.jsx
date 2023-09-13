@@ -3,6 +3,7 @@
 import styles from './ExpenseItem.module.css';
 // import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Card from './Card';
 import ExpenseDate from './ExpenseDate';
 
 // *getting data individually from object
@@ -28,7 +29,7 @@ export default function ExpenseItem({ date, title, amount }) {
   // console.log(props);
 
   return (
-    <div className={[styles['expense-item']]}>
+    <Card className={[styles['expense-item']]}>
       <ExpenseDate date={date} />
       {/* <div>{date.toUTCString()}</div> */}
       {/* <div>{props.date.toUTCString()}</div> */}
@@ -43,6 +44,6 @@ export default function ExpenseItem({ date, title, amount }) {
           ${props.expense.amount}
         </div> */}
       </div>
-    </div>
+    </Card>
   );
 }
