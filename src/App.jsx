@@ -34,8 +34,6 @@ function App() {
 
   return (
     <>
-      <h2>Let&apos;s get started</h2>
-
       <Expenses expenses={expenses} />
 
       {/* <ExpenseItem expense={expenses.at(0)} /> */}
@@ -65,7 +63,7 @@ function App() {
 
 export default App;
 
-// !REACT DOM create it instead of us
+// !REACT DOM creates it instead of us
 // function App() {
 //   return React.createElement(
 //     'div',
@@ -74,3 +72,5 @@ export default App;
 //     React.createElement(Expenses, { expenses: expenses })
 //   );
 // }
+
+// !props are custom HTML attributes
