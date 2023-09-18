@@ -3,6 +3,7 @@
 // import ExpenseItem from './components/ExpenseItem';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const expenses = [
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <>
+      <NewExpense />
       <Expenses expenses={expenses} />
 
       {/* <ExpenseItem expense={expenses.at(0)} /> */}

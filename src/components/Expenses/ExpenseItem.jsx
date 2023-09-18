@@ -1,27 +1,11 @@
+/* eslint-disable react/prop-types */
 'use strict';
 import { useState } from 'react';
 // import './ExpenseItem.css';
 import styles from './ExpenseItem.module.css';
 // import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
-
-// *getting data individually from object
-ExpenseItem.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
-  title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-};
-
-// *getting the whole object
-// ExpenseItem.propTypes = {
-//   expense: PropTypes.shape({
-//     date: PropTypes.instanceOf(Date).isRequired,
-//     title: PropTypes.string.isRequired,
-//     amount: PropTypes.number.isRequired,
-//   }).isRequired,
-// };
 
 // export default function ExpenseItem(props){}
 
@@ -33,12 +17,18 @@ export default function ExpenseItem({ date, title, amount }) {
   // *we cant change value same ad we changing in Javascript
   // *React components are just functions and they called only once that why React invented special useState() function to change data dynamically and only recall the cfunction where it's belong not the whole page !!
 
+  // *Every component has own state so we use map to multiply ExpenseItem component in the Expense component
+  // *that means if we'll get 5 ExpenseItem state by using .map() we'll get 5 useState() for each component created
+  // *that's why click changes only its own compinent not all the mapped components
+  // *if we had 2 useState here it'll become 10 2x5 each of the will be multiplied tho
   const [customTitle, setCustomTitle] = useState(title),
     titleHandler = (x) => {
       console.log(x.currentTarget);
       console.log('Clicked');
       setCustomTitle('Changed!!!');
     };
+
+  console.log('ExpenseItem evaluated!');
 
   return (
     <Card className={[styles['expense-item']]}>

@@ -19,11 +19,10 @@
     flex: 1;
 
     & h2 {
-      color: #3cb371;
+      color: pink;
       font-size: 1rem;
       flex: 1;
       margin: 0 1rem;
-      color: white;
     }
 
     & .expense-item-price {
@@ -58,7 +57,7 @@
 
       & h2 {
         font-size: 1.25rem;
-        color: #3cb371;
+        color: pink;
       }
 
       & .expense-item-price {
