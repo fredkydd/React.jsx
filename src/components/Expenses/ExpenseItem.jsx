@@ -51,7 +51,7 @@ export default function ExpenseItem({ date, title, amount }) {
     </Card>
   );
 }
-// *props starts with lowercase 'on' it means they are React ready event handler functions and they need function to execute. 4 example: onClick()
+// *props starts with lowercase 'on' it means they are React ready event handler functions and they need another function to execute. 4 example: onClick()
 // *and you need to pass function via these props
 // *<button onClick={() => console.log('Clicked!!!')}>Click Me!</button> 👇
 // *document.querySelector('button').addEventListener('click', () => console.log('Clicked!!!'));

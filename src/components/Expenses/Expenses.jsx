@@ -11,6 +11,7 @@ import ExpenseItem from './ExpenseItem';
 // export default function Expenses(props) {}
 
 export default function Expenses({ expenses }) {
+  console.log(expenses);
   return (
     <Card className={styles['expenses']}>
       {expenses.map((expense) => (

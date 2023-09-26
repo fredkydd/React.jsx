@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 'use strict';
 import './ExpenseForm.css';
 import { useState } from 'react';
 
-export default function ExpenseForm() {
+export default function ExpenseForm({ onSubmitWithId }) {
   // !value is always a string even you declare the type of input number or date
   // const [enteredTitle, setEnteredTitle] = useState(''),
   //   titleHandler = (event) => {
@@ -54,7 +55,7 @@ export default function ExpenseForm() {
     dateHandler = (event) => {
       setUserInput((prevState) => {
         console.log(prevState);
-        return { ...prevState, date: event.target.value };
+        return { ...prevState, date: new Date(event.target.value) };
       });
     };
   console.log(userInput);
@@ -78,9 +79,27 @@ export default function ExpenseForm() {
   //         );
   //   };
 
+  // *we can add onClick() into button but, it's not the best way beacuse there's a behavior built in browser on form
+  // *when the button with type="submit" inside of form element is clicked this overall form element will be submitted
+
+  // *Submitting and 2 way data binding
+  const submitHandler = (event) => {
+    event.preventDefault();
+    onSubmitWithId(userInput);
+
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
+        title: '',
+        amount: '',
+        date: '',
+      };
+    });
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="new-expense-controls">
           <div className="new-expense-control">
             <label htmlFor="">Title</label>
@@ -88,6 +107,7 @@ export default function ExpenseForm() {
               type="text"
               required
               placeholder="add your title here 😒"
+              value={userInput.title}
               onChange={titleHandler}
               // onChange={(event) =>
               //   inputChangeHandler('title', event.target.value)
@@ -99,6 +119,7 @@ export default function ExpenseForm() {
             <input
               type="number"
               placeholder="min amount $0.01 🫰🏻"
+              value={userInput.amount}
               min="0.01"
               step="0.01"
               required
@@ -114,6 +135,7 @@ export default function ExpenseForm() {
               type="date"
               min="2019-01-01"
               max="2023-12-31"
+              value={userInput.date}
               onChange={dateHandler}
               // onChange={(event) =>
               //   inputChangeHandler('date', event.target.value)
