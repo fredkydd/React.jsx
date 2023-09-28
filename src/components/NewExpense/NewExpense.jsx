@@ -4,9 +4,9 @@ import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
 export default function NewExpense({ expensesWithId }) {
-  const expenseFormWithID = (enteredExpenseFormData) => {
+  const onSubmitNoID = (userInput) => {
     const expenses = {
-      ...enteredExpenseFormData,
+      ...userInput,
       id: ('e' + (4 + Math.random().toFixed())).toString(),
     };
     console.log('This is the expenses with unique id 👇');
@@ -19,7 +19,7 @@ export default function NewExpense({ expensesWithId }) {
 
   return (
     <section className="new-expense">
-      <ExpenseForm onSubmitWithId={expenseFormWithID} />
+      <ExpenseForm onSubmitNoID={onSubmitNoID} />
     </section>
   );
 }

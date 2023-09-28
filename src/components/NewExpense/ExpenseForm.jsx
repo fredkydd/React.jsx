@@ -3,7 +3,8 @@
 import './ExpenseForm.css';
 import { useState } from 'react';
 
-export default function ExpenseForm({ onSubmitWithId }) {
+// *onSubmitNoID is the attribute name inside of props { onSubmitNoID =  onSubmitNoID() }
+export default function ExpenseForm({ onSubmitNoID }) {
   // !value is always a string even you declare the type of input number or date
   // const [enteredTitle, setEnteredTitle] = useState(''),
   //   titleHandler = (event) => {
@@ -85,7 +86,8 @@ export default function ExpenseForm({ onSubmitWithId }) {
   // *Submitting and 2 way data binding
   const submitHandler = (event) => {
     event.preventDefault();
-    onSubmitWithId(userInput);
+
+    onSubmitNoID(userInput);
 
     setUserInput((prevState) => {
       return {
