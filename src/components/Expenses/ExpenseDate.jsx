@@ -3,15 +3,27 @@
 import styles from './ExpenseDate.module.css';
 
 export default function ExpenseDate({ date }) {
-  const day = date.toLocaleString('en-US', { day: '2-digit' }),
-    month = date.toLocaleString('en-US', { month: 'long' }),
-    year = date.getFullYear();
+  const parsedDate = new Date(date),
+    isValidDate = !isNaN(parsedDate.getTime()),
+    errorMessage = isValidDate ? null : 'Invalid Date';
 
   return (
-    <div className={[styles['expense-date']]}>
-      <div className={`${styles['expense-date-day']}`}>{day}</div>
-      <div className={styles['expense-date-month']}>{month}</div>
-      <div className={styles['expense-date-year']}>{year}</div>
-    </div>
+    <section className={styles['expense-date']}>
+      {errorMessage ? (
+        <div className={styles['error-message']}>{errorMessage}</div>
+      ) : (
+        <>
+          <div className={styles['expense-date-day']}>
+            {parsedDate.toLocaleString('en-US', { day: '2-digit' })}
+          </div>
+          <div className={styles['expense-date-month']}>
+            {parsedDate.toLocaleString('en-US', { month: 'long' })}
+          </div>
+          <div className={styles['expense-date-year']}>
+            {parsedDate.getFullYear()}
+          </div>
+        </>
+      )}
+    </section>
   );
 }

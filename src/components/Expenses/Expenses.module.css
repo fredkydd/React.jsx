@@ -7,3 +7,12 @@
   /* border-radius: 12px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); */
 }
+
+.error {
+  /* color: #ff6347; */
+  text-shadow: rgb(238, 255, 2) 1px 0 10px;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  font-size: 2rem;
+}

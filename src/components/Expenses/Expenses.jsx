@@ -1,27 +1,51 @@
 /* eslint-disable react/prop-types */
 'use strict';
+import { useState } from 'react';
 import styles from './Expenses.module.css';
 import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
-
-// *i've to use props.expenses here for React  { expenses: [ ...{} ] }
-// *whatever you pass via props it gives you an object {} so that's why i got expenses as a object here instead of an array
-// *When you pass an array (or any other data type) as a prop to a functional component, React wraps it in an object where
-// !the prop name you provided becomes the key(expenses), and the value is the array (or data) you passed { expenses: [ ...{} ] }
-// export default function Expenses(props) {}
+import ExpensesFilter from './ExpenseFilter';
 
 export default function Expenses({ expenses }) {
-  console.log(expenses);
-  return (
-    <Card className={styles['expenses']}>
-      {expenses.map((expense) => (
+  const [selectedYear, setSelectedYear] = useState(null),
+    selectedYearPropsHandler = (year) => {
+      setSelectedYear(year);
+    };
+
+  const filteredExpenses = expenses.filter((expense) => {
+      const expenseDate = new Date(expense.date); // *Convert to Date object
+      // *Invalid date, skip this expense
+      isNaN(expenseDate.getTime()) && false;
+      const expenseYear = expenseDate.getFullYear();
+      return selectedYear === null || selectedYear === expenseYear;
+    }),
+    expenseItems = filteredExpenses.map((expense) => {
+      const expenseDate = new Date(expense.date),
+        day = expenseDate.toLocaleString('en-US', { day: '2-digit' }),
+        month = expenseDate.toLocaleString('en-US', { month: 'long' }),
+        year = expenseDate.getFullYear();
+
+      return (
         <ExpenseItem
           key={expense.id}
           title={expense.title}
           amount={expense.amount}
-          date={expense.date}
+          date={`${day} ${month}, ${year}`}
         />
-      ))}
+      );
+    });
+
+  return (
+    <Card className={styles['expenses']}>
+      <ExpensesFilter selectedYearProps={selectedYearPropsHandler} />
+
+      {expenseItems.length === 0 ? (
+        <strong className={styles.error}>
+          No expenses found for the {selectedYear} year
+        </strong>
+      ) : (
+        expenseItems
+      )}
     </Card>
   );
 }
