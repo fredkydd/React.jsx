@@ -16,3 +16,9 @@
   justify-content: center;
   font-size: 2rem;
 }
+
+.filteredText {
+  /* text-shadow: rgb(5, 248, 175) 1px 0 10px; */
+  text-align: center;
+  color: #333;
+}
