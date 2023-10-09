@@ -43,24 +43,25 @@ export default function ExpenseForm({ onSubmitNoID }) {
     }),
     titleHandler = (event) => {
       setUserInput((prevState) => {
-        console.log(prevState);
+        // console.log(prevState);
         return { ...prevState, title: event.target.value };
       });
     },
     amountHandler = (event) => {
       setUserInput((prevState) => {
-        console.log(prevState);
+        // console.log(prevState);
         return { ...prevState, amount: event.target.value };
       });
     },
     dateHandler = (event) => {
       setUserInput((prevState) => {
-        console.log(prevState);
+        // console.log(prevState);
         return { ...prevState, date: new Date(event.target.value) };
       });
     };
-  console.log(userInput);
+  // console.log(userInput);
 
+  // !This is wrong fix it later you cant use + operator to chain statements
   // *Shared Function()
   // const [enteredTitle, setEnteredTitle] = useState(''),
   //   [enteredAmount, setEnteredAmount] = useState(''),
@@ -135,7 +136,7 @@ export default function ExpenseForm({ onSubmitNoID }) {
             <label htmlFor="">Date</label>
             <input
               type="date"
-              min="2019-01-01"
+              min="2020-01-01"
               max="2023-12-31"
               value={userInput.date}
               onChange={dateHandler}

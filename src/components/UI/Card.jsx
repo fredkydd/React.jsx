@@ -3,8 +3,8 @@
 import styles from './Card.module.css';
 
 export default function Card({ children, className }) {
-  console.log(children);
-  console.log(className);
+  // console.log(children);
+  // console.log(className);
   // const classes = `${styles.card} ${props.className || ''}`;
   const classes = `${styles.card} ${className || ''}`;
   // const classesArray = [styles.card, props.className].filter(Boolean),

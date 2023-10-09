@@ -1,5 +1,4 @@
 'use strict';
-
 // import ExpenseItem from './components/ExpenseItem';
 import './App.css';
 import { useState } from 'react';
@@ -34,8 +33,10 @@ function App() {
       },
     ]),
     expensesWithId = (expensesWithId) => {
-      setExpenses((expenses) => [...expenses, expensesWithId]);
-      console.log(expenses);
+      setExpenses((expenses) => {
+        return [...expenses, expensesWithId];
+      });
+      // console.log(expenses);
     };
 
   return (

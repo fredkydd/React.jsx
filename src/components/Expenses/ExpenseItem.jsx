@@ -23,12 +23,12 @@ export default function ExpenseItem({ date, title, amount }) {
   // *if we had 2 useState here it'll become 10 2x5 each of the will be multiplied tho
   const [customTitle, setCustomTitle] = useState(title),
     titleHandler = (x) => {
-      console.log(x.currentTarget);
-      console.log('Clicked');
+      // console.log(x.currentTarget);
+      // console.log('Clicked');
       setCustomTitle('Changed!!!');
     };
 
-  console.log('ExpenseItem evaluated!');
+  // console.log('ExpenseItem evaluated!');
 
   return (
     <Card className={[styles['expense-item']]}>

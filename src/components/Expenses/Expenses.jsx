@@ -7,11 +7,12 @@ import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpenseFilter';
 
 export default function Expenses({ expenses }) {
-  // *i use filteredText variable because useState will render this component again when i click the option value to change year.No need to another state!
+  // i use filteredText variable because useState will render this component again when i click the option value to change year.No need to another state!
+  // filteredText is a COMPUTED VALUE(hesaplanan değer) which we DERIVE(türümek) based on this state const [selectedYear, setSelectedYear] = useState(null),
   const [selectedYear, setSelectedYear] = useState(null),
     selectedYearPropsHandler = (year) => {
       setSelectedYear(year);
-      console.log(`type of selectedYear is \n ${typeof selectedYear}`);
+      // console.log(`type of selectedYear is \n ${typeof selectedYear}`);
     };
   let filteredText = '2020, 2021, 2022, 2023',
     hiddenVisible = 'hidden';
@@ -30,9 +31,8 @@ export default function Expenses({ expenses }) {
   }
 
   const filteredExpenses = expenses.filter((expense) => {
-      const expenseDate = new Date(expense.date); // *Convert to Date object
-      // *Invalid date, skip this expense
-      isNaN(expenseDate.getTime()) && false;
+      let expenseDate = new Date(expense.date); // Convert to Date object
+      isNaN(expenseDate.getTime()) && false; // Invalid date, skip this expense
       const expenseYear = expenseDate.getFullYear();
       return selectedYear === null || selectedYear === expenseYear;
     }),
@@ -72,3 +72,6 @@ export default function Expenses({ expenses }) {
     </Card>
   );
 }
+
+// component has no state (useState) is called stateless , presentational or dumb component
+// component has state (useState) is called smart or stateful component
